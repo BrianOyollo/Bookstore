@@ -1,12 +1,8 @@
 {% extends '_base.html' %}
-{% block title %} HOME {% endblock %}
+{% load static %} {% block title %} HOME {% endblock%}
 {% block content %}
-    <h1>HOMEPAGE</h1>
-    {% if user.is_authenticated %}
-        <p>Hello {{ user.email }}!</p>
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <p>You're not logged in</p>
-        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %}
+
+<div class="book-cover bg-white p-2">
+    <img class="book-cover-image" src="{% static '/images/dfb_cover_31.jpg.' %}" />
+</div>
 {% endblock %}
