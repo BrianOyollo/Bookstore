@@ -5,7 +5,8 @@ from .forms import CustomUserCreationForm
 
 
 # Create your views here.
-class SignUpPageView(CreateView):
-    form_class = CustomUserCreationForm
-    template_name = 'signup.html'
-    success_url = reverse_lazy('login')
+""" No longer being used. Sign up is being handled by allauth """
+# class SignUpPageView(CreateView):
+#     form_class = CustomUserCreationForm
+#     template_name = 'signup.html'
+#     success_url = reverse_lazy('login')
