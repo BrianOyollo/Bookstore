@@ -45,4 +45,11 @@ h1 {
     padding: 10px;
     border-radius: 5px;
 }
-
+.password-reset-section{
+    width: 70%;
+    margin:auto;
+    border-radius: 4px;
+}
+.dropdown_link{
+    display: block;
+}
