@@ -5,7 +5,7 @@ from django.urls import reverse
 
 # Create your tests here.
 class HomepageTests(SimpleTestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         url = reverse('homepage')
         self.response = self.client.get(url)
 
@@ -34,4 +34,3 @@ class AboutPageTest(SimpleTestCase):
         self.assertEqual(self.response.status_code, 200)
         self.assertTemplateUsed(self.response, 'about.html')
         self.assertContains(self.response, 'About')
-

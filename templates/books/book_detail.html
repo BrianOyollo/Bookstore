@@ -1,10 +1,49 @@
 {% extends '_base.html' %}
 {% load static %} {% block title %} HOME {% endblock %}
 {% block content %}
+<div class="book-detail-section  p-2">
+    <!-- <div class="d-flex flex-row bd-highlight mb-3">
 
-<h4>{{ object.title }}</h4>
-<p>{{ object.author }}</p>
-<p>{{ object.price }}</p>
+            <div class=" bd-highlight border" style="width: 50%;">
+                <img src="dfA.jpg" alt="book-cover-page" width="70%">
+            </div>
+            <div class="p-2 bd-highlight text-start border">
+                <h5>The last Juror</h5>
+            </div>
+        </div> -->
+    <div class="card mb-3" style="max-width:100%;">
+        <div class="row no-gutters ">
+            <div class="col-md-3">
+                <img src="{{ book.cover.url }}" class="card-img p-1 border border-dark" alt="{{ book.title }}"
+                    width="30%">
+            </div>
+            <div class="col-md-8 w-100">
+                <div class="card-body">
+                    <h5 class="card-title" style="margin-bottom:2px">{{ object.title }}</h5>
+                    <p class="text-secondary" style="margin-bottom:2px"><b>{{ object.author }}</b></p>
+                    <p class="">
+                        {{ object.description }}
+                    </p>
+                    <div class="book-detail" style="text-align: justify;">
+                        <p class="text-secondary">Price: {{ object.price }} </p>
+                    </div>
+                    <button class="btn btn-sm btn-success">Buy Book</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="p-2">Reviews</h4>
+    <div class="reviews border" style="overflow-y: scroll; height: 300px;">
+        {% for review in book.reviews.all %}
+        <fieldset class="bg-light p-2" style="">
+            <h6>{{ review.author }}</h6>
+            <p>{{ review.review }}</p>
+        </fieldset>
+        {% endfor %}
+
+    </div>
+</div>
 
 
 {% endblock %}

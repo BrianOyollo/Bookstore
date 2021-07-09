@@ -1,8 +1,54 @@
 {% extends '_base.html' %}
 {% load static %} {% block title %} HOME {% endblock %}
 {% block content %}
-    {% for book in booklist %}
-        <h6><a class="" href="{{ book.get_absolute_url }}">{{ book.title }}</a></h6>
-    {% endfor %}
+{# side nav for book categories #}
+<div class="sidenav bg-light text-white">
+    <a href="#about">Action & Adventure</a>
+    <a href="#about">Classics</a>
+    <a href="#services">Romance</a>
+    <a href="#clients">Thrillers</a>
+    <a href="#contact">History</a>
+    <a href="#contact">Memoir</a>
+    <a href="#contact">Poetry</a>
+    <a href="#contact">History</a>
+
+</div>
+{# book list section #}
+<div class="booklist border p-2">
+    <div class="d-flex flex-row bd-highlight">
+        <div class="p-2 bd-highlight">
+            <h5><a class="text-secondary" href="#">All Books</a></h5>
+        </div>
+        <div class="p-2 bd-highlight ">
+            <h5><a class="text-secondary" href="#">New Arrivals</a></h5>
+        </div>
+        <div class="ms-auto p-2 bd-highlight">
+        </div>
+    </div>
+    <div class="book-items ">
+        <div class="d-flex flex-wrap flex-row mb-2">
+            {% for book in booklist %}
+            <div class="card p-1 m-2 bg-light" style="width: 410px;">
+                <div class="row g-5">
+                    <div class="col-md-5">
+                        <img src="{{ book.cover.url }}" class="img-fluid rounded-start p-1" alt="{{ book.title }}">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title " style="font-size: 18px;"><a class="text-dark"
+                                    href="{{ book.get_absolute_url }}">
+                                    {{book.title }}</a> </h5>
+                            <p class="card-text">{{ book.author }}</p>
+                            <p class="card-text text-success">{{ book.price }}</p>
+                            <button class="btn btn-dark" style="border-radius: 10px">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}
